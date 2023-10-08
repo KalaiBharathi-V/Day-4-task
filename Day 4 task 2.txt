@@ -1,0 +1,82 @@
+1. Do the below programs in arrow functions using.
+
+a. Print odd numbers in an array
+
+var printOddNumbers = (arr) => {
+  arr.forEach((num) => {
+    if (num % 2 !== 0) {
+      console.log(num);
+    }
+  });
+};
+
+var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+printOddNumbers(numbers);
+
+
+b. Convert all the strings to title caps in a string array
+
+var convertToTitleCaps = (strArray) => {
+  return strArray.map((str) => {
+    return str
+      .split(' ')
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+  });
+};
+
+var stringArray = ['hello world', 'javascript is fun', 'programming is great'];
+var titleCapsArray = convertToTitleCaps(stringArray);
+console.log(titleCapsArray);
+
+
+c. Sum of all numbers in an array
+
+var sumOfNumbers = (arr) => {
+  return arr.reduce((total, num) => total + num, 0);
+};
+
+var numbers = [1, 2, 3, 4, 5];
+var sum = sumOfNumbers(numbers);
+console.log(sum);
+
+
+d. Return all the prime numbers in an array
+
+var isPrime = (num) => {
+  if (num <= 1) return false;
+  if (num <= 3) return true;
+
+  if (num % 2 === 0 || num % 3 === 0) return false;
+
+  for (let i = 5; i * i <= num; i += 6) {
+    if (num % i === 0 || num % (i + 2) === 0) return false;
+  }
+
+  return true;
+};
+
+var getPrimeNumbers = (arr) => {
+  return arr.filter((num) => isPrime(num));
+};
+
+var numbers = [2, 3, 5, 7, 8, 11, 12, 13];
+var primeNumbers = getPrimeNumbers(numbers);
+console.log(primeNumbers);
+
+
+e. Return all the palindromes in an array
+
+var isPalindrome = (str) => {
+  var cleanStr = str.toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
+  var reversedStr = cleanStr.split('').reverse().join('');
+  return cleanStr === reversedStr;
+};
+
+var getPalindromes = (arr) => {
+  return arr.filter((str) => isPalindrome(str));
+};
+
+var strings = ['level', 'hello', 'deified', 'world', 'racecar'];
+var palindromes = getPalindromes(strings);
+console.log(palindromes);
